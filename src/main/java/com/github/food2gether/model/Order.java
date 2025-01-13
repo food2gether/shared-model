@@ -24,4 +24,14 @@ public class Order {
     @ManyToOne
     private Profile profile;
 
+    @Column(name = "state", nullable = false)
+    private State state = State.OPEN;
+
+    public enum State {
+        OPEN,
+        SUBMITTED,
+        PAYED,
+        REJECTED
+    }
+
 }
