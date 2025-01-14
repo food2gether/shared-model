@@ -6,11 +6,29 @@ on:
       - main
 
 jobs:
-  protected-push:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Compile
+        run: ./mvnw compile
+      - name: Upload compile results
+        uses: actions/upload-artifact@v4
+        with:
+          name: compile
+          path: 'target'
+  sonar:
     uses: food2gether/workflows/.github/workflows/maven-sonar.yaml@main
-    if: {{ never() }}
-    inputs:
-      java_version: 17
+    needs: compile
+    with:
+      java_version: '17'
       sonar_project_key: ${{ vars.SONAR_PROJECT }}
+      test_results_artifact_key: 'compile'
     secrets:
       sonar_token: ${{ secrets.SONAR_TOKEN }}
