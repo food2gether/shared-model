@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "profiles")
 @Data
@@ -13,22 +15,16 @@ import lombok.NoArgsConstructor;
 public class Profile {
 
     @Id
-    @Column(name = "name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(name = "display_name")
+    @Column(nullable = false)
     private String displayName;
 
-    @Embedded
-    private ContactInformation[] contactInformation;
+    @OneToMany(mappedBy = "profiles", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ContactInformation> contactInformation;
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    private class ContactInformation {
-
-        private String type;
-        private String value;
-
-    }
 }

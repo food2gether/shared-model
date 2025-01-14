@@ -1,4 +1,4 @@
-package com.github.food2gether.shared.response;
+package com.github.food2gether.response;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

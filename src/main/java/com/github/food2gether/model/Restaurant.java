@@ -18,15 +18,16 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "display_name", nullable = false)
+    @Column(nullable = false)
     private String displayName;
 
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "restaurants", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MenuItem> menu;
 
+    @Embeddable
     @Data
     @AllArgsConstructor
     @NoArgsConstructor

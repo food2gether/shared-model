@@ -19,7 +19,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "session")
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     @OneToOne(mappedBy = "id")
@@ -28,7 +28,7 @@ public class Session {
     @OneToOne(mappedBy = "id")
     private Profile organizer;
 
-    @Column(name = "deadline", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime deadline;
 
 }

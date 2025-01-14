@@ -16,7 +16,8 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "id")
+    @ManyToOne
+    @JoinColumn(name = "menu_item_id", nullable = false)
     private MenuItem menuItem;
 
     @Column(name = "quantity", nullable = false)

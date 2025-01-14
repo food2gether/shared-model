@@ -18,13 +18,14 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items;
 
     @ManyToOne
+    @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
-    @Column(name = "state", nullable = false)
+    @Column(nullable = false)
     private State state = State.OPEN;
 
     public enum State {
