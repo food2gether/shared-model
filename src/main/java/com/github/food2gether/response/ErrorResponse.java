@@ -1,7 +1,10 @@
 package com.github.food2gether.response;
 
-import lombok.AllArgsConstructor;
+import lombok.*;
 
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
 public final class ErrorResponse extends Response {
 
     private final Error error;
@@ -11,23 +14,8 @@ public final class ErrorResponse extends Response {
         this.error = new Error(code, messageKey);
     }
 
-    public int getCode() {
-        return this.error.code;
-    }
-
-    public String getDetail() {
-        return this.error.detail;
-    }
-
-    public void setCode(int code) {
-        this.error.code = code;
-    }
-
-    public void setDetail(String messageKey) {
-        this.error.detail = messageKey;
-    }
-
     // used to achieve a structure where the error is a field of the response
+    @Data
     @AllArgsConstructor
     private static class Error {
 
