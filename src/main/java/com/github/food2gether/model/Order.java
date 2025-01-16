@@ -1,5 +1,7 @@
 package com.github.food2gether.model;
 
+import com.github.food2gether.response.ErrorResponse;
+import com.github.food2gether.response.Response;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

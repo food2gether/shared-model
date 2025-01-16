@@ -17,7 +17,7 @@ public final class ErrorResponse extends Response {
     // used to achieve a structure where the error is a field of the response
     @Data
     @AllArgsConstructor
-    private static class Error {
+    public static class Error {
 
         private int code;
 
