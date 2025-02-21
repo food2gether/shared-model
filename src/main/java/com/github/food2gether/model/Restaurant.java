@@ -24,7 +24,7 @@ public class Restaurant {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "restaurants", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MenuItem> menu;
 
     @Embeddable

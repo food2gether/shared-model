@@ -24,7 +24,7 @@ public class Profile {
     @Column(nullable = false)
     private String displayName;
 
-    @OneToMany(mappedBy = "profiles", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContactInformation> contactInformation;
 
 }

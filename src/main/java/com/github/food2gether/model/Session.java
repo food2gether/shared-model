@@ -19,13 +19,13 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne
     private Restaurant restaurant;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne
     private Profile organizer;
 
     @Column(nullable = false)
