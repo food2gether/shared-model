@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "session")
+@Table(name = "sessions")
 @Entity
 @Data
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 
     @OneToOne
