@@ -13,7 +13,7 @@ You might want to replace the variable reference with the version you want to us
         <food2gether.shared-model.version>X.Y.Z</food2gether.shared-model.version>
         <!-- This is a private access token which can only read from the github packages registry of food2gether -->
         <!-- This token may be used by anyone who is interested in our packages -->
-        <ghpkg.f2g.key>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</ghpkg.f2g.key>
+        <ghpkg.f2g.key>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</ghpkg.f2g.key>
     </properties>
     ...
     <repositories>
