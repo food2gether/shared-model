@@ -16,7 +16,7 @@ public class ContactInformation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", nullable = false) // Foreign key to profile
     private Profile profile;
 

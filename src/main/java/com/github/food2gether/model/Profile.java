@@ -24,6 +24,9 @@ public class Profile {
     @Column(nullable = false)
     private String displayName;
 
+    @Column(nullable = true)
+    private String profilePictureUrl;
+
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContactInformation> contactInformation;
 
