@@ -27,6 +27,10 @@ public class Profile {
     @Column(nullable = true)
     private String profilePictureUrl;
 
+    // TODO Replace email with ref to account
+    @Column(nullable = false, unique = true)
+    private String primaryEmail;
+
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContactInformation> contactInformation;
 
