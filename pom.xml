@@ -34,6 +34,11 @@
       <artifactId>jakarta.persistence-api</artifactId>
       <version>[3.0.0,)</version>
     </dependency>
+    <dependency>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>[3.0.0, 3.9.9)</version> <!-- There is some issue that the newest version cannot be resolved -->
+    </dependency>
 
     <dependency>
       <groupId>org.projectlombok</groupId>
