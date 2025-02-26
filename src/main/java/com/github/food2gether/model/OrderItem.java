@@ -23,4 +23,22 @@ public class OrderItem {
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private Long menuItemId;
+        private int quantity;
+
+        public static DTO fromOrderItem(OrderItem orderItem) {
+            return new DTO(
+                    orderItem.getId(),
+                    orderItem.getMenuItem().getId(),
+                    orderItem.getQuantity()
+            );
+        }
+    }
+
 }

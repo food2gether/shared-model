@@ -47,4 +47,23 @@ public class Restaurant {
 
     }
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private String displayName;
+        private Address address;
+
+        public static DTO fromRestaurant(Restaurant restaurant) {
+            return new DTO(
+                restaurant.getId(),
+                restaurant.getDisplayName(),
+                restaurant.getAddress()
+            );
+        }
+
+    }
+
 }

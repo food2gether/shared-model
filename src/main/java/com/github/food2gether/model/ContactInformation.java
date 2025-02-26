@@ -25,4 +25,24 @@ public class ContactInformation {
 
     @Column(nullable = false)
     private String value;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+        public Long id;
+        public Long profileId;
+        public String type;
+        public String value;
+
+        public static DTO fromContactInformation(ContactInformation contactInformation) {
+            return new DTO(
+                contactInformation.getId(),
+                contactInformation.getProfile().getId(),
+                contactInformation.getType(),
+                contactInformation.getValue()
+            );
+        }
+    }
+
 }

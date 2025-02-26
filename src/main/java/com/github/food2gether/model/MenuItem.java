@@ -29,4 +29,27 @@ public class MenuItem {
     @Column(nullable = false)
     private int price;
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private Long restaurantId;
+        private String name;
+        private String description;
+        private int price;
+
+        public static DTO fromMenuItem(MenuItem menuItem) {
+            return new DTO(
+                menuItem.getId(),
+                menuItem.getRestaurant().getId(),
+                menuItem.getName(),
+                menuItem.getDescription(),
+                menuItem.getPrice()
+            );
+        }
+
+    }
+
 }

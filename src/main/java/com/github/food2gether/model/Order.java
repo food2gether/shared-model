@@ -35,4 +35,24 @@ public class Order {
         REJECTED
     }
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private List<OrderItem.DTO> items;
+        private Long profileId;
+        private State state;
+
+        public static DTO fromOrder(Order order) {
+            return new DTO(
+                order.getId(),
+                order.getItems().stream().map(OrderItem.DTO::fromOrderItem).toList(),
+                order.getProfile().getId(),
+                order.getState()
+            );
+        }
+    }
+
 }

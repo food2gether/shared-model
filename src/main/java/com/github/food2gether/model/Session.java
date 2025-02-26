@@ -17,7 +17,7 @@ public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Order> orders;
@@ -30,5 +30,26 @@ public class Session {
 
     @Column(nullable = false)
     private LocalDateTime deadline;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private Long restaurantId;
+        private Long organizerId;
+        private LocalDateTime deadline;
+
+        public static DTO fromSession(Session session) {
+            return new DTO(
+                session.getId(),
+                session.getRestaurant().getId(),
+                session.getOrganizer().getId(),
+                session.getDeadline()
+            );
+        }
+
+    }
 
 }

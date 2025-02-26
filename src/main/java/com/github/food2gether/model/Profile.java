@@ -34,4 +34,27 @@ public class Profile {
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContactInformation> contactInformation;
 
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DTO {
+
+        private Long id;
+        private String name;
+        private String displayName;
+        private String profilePictureUrl;
+        private String primaryEmail;
+
+        public static Profile.DTO fromProfile(Profile profile) {
+            return new Profile.DTO(
+                profile.getId(),
+                profile.getName(),
+                profile.getDisplayName(),
+                profile.getProfilePictureUrl(),
+                profile.getPrimaryEmail()
+            );
+        }
+
+    }
+
 }
