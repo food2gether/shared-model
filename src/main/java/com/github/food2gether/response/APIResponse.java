@@ -15,6 +15,10 @@ public abstract class APIResponse {
         return Response.status(response.getStatus()).entity(response).build();
     }
 
+    public static <T> Response response(T data) {
+        return response(apiResponse(data));
+    }
+
     public static <T> Response response(int code, T data) {
         return response(apiResponse(code, data));
     }
@@ -25,9 +29,17 @@ public abstract class APIResponse {
 
     public static <D> APIResponse apiResponse(int code, D data) {
         if (data instanceof Throwable t) {
-            return new ErrorAPIResponse(code, t.getMessage());
+            return apiErrorResponse(code, t.getMessage());
         } else {
             return apiDataResponse(code, data);
+        }
+    }
+
+    public static <D> APIResponse apiResponse(D data) {
+        if (data instanceof Throwable t) {
+            return apiErrorResponse(t.getMessage());
+        } else {
+            return apiDataResponse(data);
         }
     }
 
