@@ -12,7 +12,7 @@ public class ErrorAPIResponse extends APIResponse {
     private String message;
 
     ErrorAPIResponse(int status, String message) {
-        super(status);
+        super(false, status);
         this.message = message;
     }
 

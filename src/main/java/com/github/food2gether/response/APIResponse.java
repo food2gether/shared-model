@@ -9,6 +9,7 @@ import lombok.Data;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class APIResponse {
 
+    private boolean success;
     private int status;
 
     public static Response response(APIResponse response) {

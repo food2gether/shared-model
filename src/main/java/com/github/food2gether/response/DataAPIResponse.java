@@ -12,7 +12,7 @@ public class DataAPIResponse<T> extends APIResponse {
     private T data;
 
     DataAPIResponse(int status, T data) {
-        super(status);
+        super(true, status);
         this.data = data;
     }
 
