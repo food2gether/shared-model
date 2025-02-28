@@ -1,4 +1,4 @@
-package com.github.food2gether.response;
+package com.github.food2gether.shared.response;
 
 import jakarta.ws.rs.core.Response;
 import lombok.AccessLevel;
