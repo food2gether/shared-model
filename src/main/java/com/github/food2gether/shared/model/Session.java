@@ -22,10 +22,10 @@ public class Session {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Order> orders;
 
-    @OneToOne
+    @ManyToOne
     private Restaurant restaurant;
 
-    @OneToOne
+    @ManyToOne
     private Profile organizer;
 
     @Column(nullable = false)
