@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class ContactInformation {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,10 +21,10 @@ public class ContactInformation {
     @JoinColumn(name = "profile_id", nullable = false) // Foreign key to profile
     private Profile profile;
 
-    @Column(nullable = false)
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(nullable = false)
+    @Column(name = "value", nullable = false)
     private String value;
 
     @Data

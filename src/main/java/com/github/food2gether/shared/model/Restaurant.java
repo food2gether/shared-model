@@ -15,10 +15,11 @@ import java.util.List;
 public class Restaurant {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "displayName", nullable = false)
     private String displayName;
 
     @Embedded

@@ -15,20 +15,21 @@ import java.util.List;
 public class Profile {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "displayName", nullable = false)
     private String displayName;
 
-    @Column(nullable = true)
+    @Column(name = "profilePictureUrl")
     private String profilePictureUrl;
 
     // TODO Replace email with ref to account
-    @Column(nullable = false, unique = true)
+    @Column(name = "primaryEmail", nullable = false, unique = true)
     private String primaryEmail;
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)

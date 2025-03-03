@@ -15,6 +15,7 @@ import java.util.List;
 public class Order {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -25,7 +26,8 @@ public class Order {
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "state", nullable = false)
     private State state = State.OPEN;
 
     public enum State {

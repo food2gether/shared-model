@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class OrderItem {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

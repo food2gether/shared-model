@@ -16,6 +16,7 @@ import java.util.List;
 public class Session {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -28,7 +29,7 @@ public class Session {
     @ManyToOne
     private Profile organizer;
 
-    @Column(nullable = false)
+    @Column(name = "deadline", nullable = false)
     private LocalDateTime deadline;
 
     @Data
