@@ -26,6 +26,10 @@ public class Order {
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 
+    @ManyToOne
+    @JoinColumn(name = "session_id", nullable = false)
+    private Session session;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private State state = State.OPEN;

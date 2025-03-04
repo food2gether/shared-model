@@ -1,0 +1,8 @@
+ALTER TABLE orders
+    ADD session_id BIGINT;
+
+ALTER TABLE orders
+    ALTER COLUMN session_id SET NOT NULL;
+
+ALTER TABLE orders
+    ADD CONSTRAINT FK_ORDERS_ON_SESSION FOREIGN KEY (session_id) REFERENCES sessions (id);
